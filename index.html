@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+    <style>
+      /* last in group */
+      .class:has(+ :not(.class)) {
+        background: pink;
+      }
+      /* anything but last in container */
+      .class:has(~ .class) {
+        box-shadow: 0 0 0 1px #f00a;
+      }
+      /* last in container */
+      .class:not(:has(~ .class)) {
+        background: #0f0a;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <div class="class">not-last</div>
+      <div class="class">not-last</div>
+      <div class="class">last-in-group</div>
+      <div>---</div>
+      <div class="m">not-last</div>
+      <div class="class">last-in-group</div>
+      <div>---</div>
+      <div class="class m">last-class</div>
+      <div>---</div>
+    </div>
+  </body>
+</html>
